@@ -1,0 +1,89 @@
+/* ESTILOS BACKGROUND */
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    transition: all 1s ease-in-out;
+}
+
+/* ESTILOS CAJITAS ------------------------------------------------------------------------------------*/
+.project {
+    background: var(--color-card-glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    box-shadow: var(--color-shadow-soft);
+    text-align: center;
+    color: var(--color-text-body);
+    max-width: 400px;
+    transition: 0.3s ease;
+}
+
+/* RESTO ESTILOS GENÉRICOS --------------------------------------------------------------------------------*/
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-h1);
+    font-family: var(--font-family-header);
+    text-shadow: var(--text-shadow-heading);
+    -webkit-text-stroke: 1.5px var(--color-card-border);
+}
+
+h2 {
+    font-family: var(--font-family-header);
+    color: var(--color-text-heading);
+    text-shadow: var(--text-shadow-heading);
+    -webkit-text-stroke: 1px var(--color-bg-primary);
+}
+
+p {
+    font-size: var(--font-size-p);
+    font-family: var(--font-family-body);
+    color: var(--color-text-muted);
+}
+
+#goHome {
+    display: flex;
+    margin: 1rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-card-border);
+    text-shadow: var(--text-shadow-heading);
+    -webkit-text-stroke: .5px var(--color-bg-primary);
+    cursor: pointer;
+}
+
+/* CLOCK STYLES --------------------------------------------------------------------------------------*/
+.digital-clock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background: var(--color-card-glass-bg);
+    margin: 100px auto;
+    box-shadow: var(--color-shadow-soft);
+    backdrop-filter: blur(10px);
+}
+
+#clock {
+    font-family: var(--font-family-accent);
+    font-size: var(--font-size-clock);
+}
+
+#date {
+    font-family: var(--font-family-accent);
+    font-size: var(--font-size-p);
+    margin-bottom: var(--spacing-md);
+}
+
+.message {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-p);
+    color: var(--color-accent-light);
+}
