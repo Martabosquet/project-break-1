@@ -1,3 +1,4 @@
+//GO HOME BUTTON
 const goHome = document.getElementById("goHome");
 
 goHome.addEventListener("click", () => {

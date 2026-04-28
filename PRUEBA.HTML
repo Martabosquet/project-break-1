@@ -22,17 +22,16 @@
             <h1>GO HOME</h1>
         </button>
     </header>
-    <main class="mainContainer keyContainer">
-        <h2>GENERADOR DE CONTRASEÑAS SEGURAS</h2>
-        <div class="slider-container">
-            <input type="range" id="passwordLength" min="12" max="50" value="15"
-                oninput="this.nextElementSibling.value = this.value">
-            <output>15</output>
-        </div>
-        <button id="generateButton">GENERAR CONTRASEÑA 🔒</button>
-        <div class="passwordBox">
-            <input type="text" name="text" id="pass" placeholder="Clic en generar contraseña">
-            <i id="copy">⧉</i>
+    <main class="container">
+        <h2>Añade tu enlace de interés</h2>
+        <div class="linkStyle">
+            <div class="inputEntries">
+                <input type="text" id="name-input" placeholder="Nombre de tu enlace" required="">
+                <input type="text" id="url-input" required="" placeholder="Pega aquí la URL">
+                <button id="add-button">AÑADIR ENLACE</button>
+                <button id="clearButton">BORRAR TODOS LOS ENLACES</button>
+            </div>
+            <ul id="li-container" class="li-container"></ul>
         </div>
     </main>
     <footer>
@@ -47,7 +46,7 @@
     </footer>
     <script src="../main.js"></script>
     <script src="../JS/background.js"></script>
-    <script src="../JS/key-generator.js"></script>
+    <script src="../JS/link-collect.js"></script>
 </body>
 
 </html>

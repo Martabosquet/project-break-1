@@ -18,19 +18,29 @@
 
 <body>
     <header>
-        <button id="goHome">
+        <button id="goHome" class="goHome">
             <h1>GO HOME</h1>
         </button>
     </header>
-    <main class="digital-clock">
+    <main class="mainContainer clockContainer">
         <p class="message"> LA FECHA Y HORA ACTUAL ES ...</p>
         <div id="clock"></div>
         <div id="date"></div>
         <p id="message" class="message"></p>
     </main>
+    <footer>
+        <nav id="navigation-footer">
+            <ul>
+                <li><a href="digital-clock.html">Digital Clock</a></li>
+                <li><a href="key-generator.html">Key Generator</a></li>
+                <li><a href="short-list.html">Short List</a></li>
+                <li><a href="weather.html">Weather</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="../main.js"></script>
+    <script src="../JS/background.js"></script>
+    <script src="../JS/digital-clock.js"></script>
 </body>
-<script src="../main.js"></script>
-<script src="../JS/background.js"></script>
-<script src="../JS/digital-clock.js"></script>
 
 </html>

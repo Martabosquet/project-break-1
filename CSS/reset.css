@@ -1,23 +1,22 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-html,
 body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+html {
     height: 100%;
     width: 100%;
 }
 
-body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+footer {
+    margin-top: auto;
 }
 
 img,
