@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJECT BREAK 1</title>
+    <title>Generador de contraseñas</title>
     <link rel="stylesheet" href="../CSS/reset.css">
     <link rel="stylesheet" href="../CSS/root.css">
     <link rel="stylesheet" href="../CSS/styles.css">
@@ -25,30 +25,21 @@
     <main class="mainContainer keyContainer">
         <h2>GENERADOR DE CONTRASEÑAS SEGURAS</h2>
         <div class="slider-container">
-            <input type="range" id="passwordLength" min="12" max="50" value="15"
+            <p class="pass-text">Longitud de la contraseña:</p>
+            <input type="range" id="passwordLength" min="12" max="50" value="17"
                 oninput="this.nextElementSibling.value = this.value">
-            <output>15</output>
+            <output>17</output>
         </div>
         <button id="generateButton">GENERAR CONTRASEÑA 🔒</button>
         <div class="passwordBox">
-            <input type="text" name="text" id="pass" placeholder="Clic en generar contraseña">
+            <input type="text" name="text" id="pass" placeholder="Clic en generar contraseña" readonly>
             <i id="copy">⧉</i>
         </div>
     </main>
     <footer>
-        <nav id="navigation-footer">
-            <ul>
-                <li><a href="digital-clock.html"><img src="../IMG/reloj.png" alt="icono del dibujo de un reloj"></a>
-                </li>
-                <li><a href="key-generator.html"><img src="../IMG/candado.png" alt="icono del dibujo de un candado"></a>
-                </li>
-                <li><a href="short-list.html"><img src="../IMG/enlace.png" alt="icono del dibujo de un enlace"></a></li>
-                <li><a href="weather.html"><img src="../IMG/nube.png" alt="icono del dibujo de una nube"></a></li>
-            </ul>
-        </nav>
+
     </footer>
     <script src="../main.js"></script>
-    <script src="../JS/background.js"></script>
     <script src="../JS/key-generator.js"></script>
 </body>
 

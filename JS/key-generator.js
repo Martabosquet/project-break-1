@@ -11,23 +11,42 @@ const allStrings = stringMayusculas + stringMinusculas + stringNumeros + stringS
 
 //generar la contraseña en función de los caracteres que quiero:
 
-function generatePassword() {
-    let pass = "";
+generateButton.addEventListener("click",
+    function () {
+        let pass = "";
+        const passwordLengthInput = parseInt(passwordLength.value);
 
-    while (parseInt(passwordLength.value) > pass.length) {
-        pass += allStrings[Math.floor(Math.random() * allStrings.length)];
+        // Asegurar q pongo uno de cada tipo mínimo:
+        pass += stringMayusculas[Math.floor(Math.random() * stringMayusculas.length)];
+        pass += stringMinusculas[Math.floor(Math.random() * stringMinusculas.length)];
+        pass += stringNumeros[Math.floor(Math.random() * stringNumeros.length)];
+        pass += stringSimbolos[Math.floor(Math.random() * stringSimbolos.length)];
+
+        // resto de caracteres aleatorios hasta llegar al tamaño que se ha pedido:
+        while (passwordLengthInput > pass.length) {
+            pass += allStrings[Math.floor(Math.random() * allStrings.length)];
+        }
+
+        // barajamos la contraseña para que los primeros caracteres no sigan siempre el mismo orden
+        pass = pass.split('').sort(() => 0.5 - Math.random()).join('');
+
+        password.value = pass;
     }
-    password.value = pass;
-}
-
-generateButton.addEventListener("click", generatePassword);
+);
 
 //copiar la contraseña al portapapeles
 
-function copyPassword() {
-    password.select();
-    navigator.clipboard.writeText(password.value);
-    alert('Contraseña copiada al portapapeles');
-}
+copy.addEventListener('click',
+    async function () {
+        if (!password.value) return;
 
-copy.addEventListener('click', copyPassword);
+        try {
+            await navigator.clipboard.writeText(password.value);
+            alert('Contraseña copiada al portapapeles ✅');
+
+        } catch (error) {
+            console.error("Error al copiar:", error.message);
+            alert('No se pudo copiar la contraseña. Por favor, inténtalo manualmente.');
+        }
+    }
+);

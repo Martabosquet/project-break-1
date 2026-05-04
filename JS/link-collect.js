@@ -18,35 +18,41 @@ function renderizarMarcadores() {
     });
 }
 
-function guardarMarcador() {
-    const name = nameInput.value;
-    let url = urlInput.value;
+addLinkButton.addEventListener("click", async function () {
+    const name = nameInput.value.trim();
+    let url = urlInput.value.trim();
 
     if (name === "" || url === "") return;
     if (!url.startsWith('http')) url = `https://${url}`;
 
     const nuevoMarcador = { name: name, url: url };
 
-    marcadores.push(nuevoMarcador);
-    localStorage.setItem('misMarcadores', JSON.stringify(marcadores));
-    nameInput.value = '';
-    urlInput.value = '';
-    renderizarMarcadores();
-}
+    try {
+        marcadores.push(nuevoMarcador);
+        localStorage.setItem('misMarcadores', JSON.stringify(marcadores));
 
-addLinkButton.addEventListener("click", guardarMarcador);
+        nameInput.value = '';
+        urlInput.value = '';
+
+        await renderizarMarcadores();
+        console.log("Marcador guardado con éxito");
+
+    } catch (error) {
+        console.error("Error al guardar el marcador:", error);
+    }
+});
 
 renderizarMarcadores();
 
 /* BORRAR MARCADORES GUARDADOS ----------------------------------------------------*/
 /* Todos los enlaces */
-function limpiar() {
-    localStorage.clear();
-    marcadores = [];
-    renderizarMarcadores();
-}
-
-clearButton.addEventListener("click", limpiar);
+clearButton.addEventListener("click",
+    function () {
+        localStorage.clear();
+        marcadores = [];
+        renderizarMarcadores();
+    }
+);
 
 /* Solo uno */
 
@@ -56,10 +62,12 @@ function borrarLink(index) {
     renderizarMarcadores();
 }
 
-linksContainer.addEventListener("click", function (e) { //se lo pongo al padre porque sino deletebutton no existe cuando cargamos la función
-    if (e.target.classList.contains('deleteButton')) {     // Si el elemento clicado tiene la clase 'deleteButton'
-        const index = e.target.getAttribute('data-index'); // Obtenemos el índice que guardamos antes en el HTML
-        borrarLink(index);
+linksContainer.addEventListener("click",
+    function (e) { //se lo pongo al padre porque sino deletebutton no existe cuando cargamos la función
+        if (e.target.classList.contains('deleteButton')) {
+            const index = e.target.getAttribute('data-index');
+            borrarLink(index);
+        }
     }
-});
+);
 

@@ -1,4 +1,4 @@
-/* ESTILOS BACKGROUND */
+/* ESTILO BACKGROUND, FOOTER Y GENÉRICOS --------------------------------------------------------------------------*/
 body {
     background-size: cover;
     background-position: center;
@@ -9,21 +9,15 @@ body {
     transition: all 1s ease-in-out;
 }
 
-/* ESTILOS CAJITAS ------------------------------------------------------------------------------------*/
-.project {
-    background: var(--color-card-glass-bg);
+#navigation-footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+    padding: var(--spacing-md);
+    background-color: var(--color-card-border);
     backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-card-border);
-    box-shadow: var(--color-shadow-soft);
-    text-align: center;
-    color: var(--color-text-body);
-    max-width: 400px;
-    transition: 0.3s ease;
+    box-shadow: var(--color-shadow-hover);
 }
-
-/* RESTO ESTILOS GENÉRICOS --------------------------------------------------------------------------------*/
 
 .headerTitle {
     border: 1px solid var(--color-card-border);
@@ -45,6 +39,7 @@ h2 {
     color: var(--color-text-heading);
     text-shadow: var(--text-shadow-heading);
     -webkit-text-stroke: 1px var(--color-bg-primary);
+    padding-bottom: var(--spacing-lg);
 }
 
 h3 {
@@ -63,7 +58,7 @@ p {
     align-items: center;
     width: 200px;
     height: 75px;
-    margin: 2rem;
+    margin: var(--spacing-lg);
     font-family: var(--font-family-header);
     font-size: var(--font-size-h4);
     border-radius: var(--radius-lg);
@@ -82,32 +77,191 @@ p {
     box-shadow: var(--color-shadow-soft);
 }
 
-/* FOOTER --------------------------------------------------------------------------------------------*/
-
-#navigation-footer ul {
-    display: flex;
-    justify-content: center;
-    gap: 4%;
-    padding: 1rem;
-    background-color: var(--color-card-border);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--color-shadow-hover);
-}
-
-/* CLOCK STYLES --------------------------------------------------------------------------------------*/
-
 .mainContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: var(--color-card-glass-bg);
-    padding: 2rem;
     box-shadow: var(--color-shadow-soft);
     backdrop-filter: blur(10px);
     width: 100%;
     height: 50vh;
 }
+
+/* DASHBOARD STYLES (INDEX) --------------------------------------------------------------------------*/
+
+.dashboard-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    width: 95%;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: 75vh;
+    flex-grow: 1;
+}
+
+.dashboard-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    overflow: hidden;
+    max-height: 100%;
+
+    background: var(--color-card-glass-bg);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-card h2 {
+    margin-bottom: auto;
+    padding-top: 10px;
+}
+
+.dashboard-card p {
+    margin-bottom: var(--spacing-lg);
+    flex-grow: 1;
+}
+
+.dashboard-link {
+    font-family: var(--font-family-body);
+    font-weight: bold;
+    color: var(--color-text-heading);
+    -webkit-text-stroke: .5px var(--color-bg-primary);
+    background-color: transparent;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-card-border);
+    transition: all 0.3s ease;
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.dashboard-link:hover {
+    background-color: var(--color-card-border);
+    box-shadow: var(--color-shadow-soft);
+}
+
+.li-container-index {
+    backdrop-filter: blur(10px);
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--color-card-border);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-family-accent);
+    margin-top: var(--spacing-md);
+
+    height: 120px;
+    overflow-y: auto;
+    display: block;
+}
+
+.li-container-index::-webkit-scrollbar {
+    height: var(--spacing-sm);
+}
+
+.li-container-index::-webkit-scrollbar-thumb {
+    background-color: var(--color-card-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.linkStyle-index {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+}
+
+.inputEntries-index {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.weather-container-index {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.weather-index {
+    flex: 1;
+    text-align: left;
+}
+
+
+.weather-index h3 {
+    font-weight: 800;
+    font-size: 1.1rem;
+    line-height: 1.1;
+    color: var(--color-text-heading);
+}
+
+.weather-index p {
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    color: var(--color-bg-primary);
+}
+
+.weather-icon-index img {
+    width: 65px;
+    height: 65px;
+}
+
+.weather-data-index {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.weather-data-index p {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--color-bg-primary);
+    white-space: nowrap;
+    margin: 0;
+}
+
+.forecast-index {
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+    padding: 10px 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.forecast h3 {
+    font-size: 0.9rem !important;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.forecast-hours {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 8px;
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* CLOCK STYLES --------------------------------------------------------------------------------------*/
 
 .clockContainer,
 .keyContainer {
@@ -119,7 +273,7 @@ p {
 
 #clock {
     font-family: var(--font-family-accent);
-    font-size: var(--font-size-clock);
+    font-size: clamp(2rem, 8vw, var(--font-size-clock));
 }
 
 #date {
@@ -128,15 +282,10 @@ p {
     margin-bottom: var(--spacing-md);
 }
 
-.mainContainer p,
-.container p {
-    font-family: var(--font-family-body);
-    font-size: var(--font-size-p);
-    color: var(--color-accent-light);
-}
 
 .message {
-    padding: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    color: var(--color-bg-primary);
 }
 
 /* KEY GENERATOR STYLES ---------------------------------------------------------------------------*/
@@ -159,21 +308,51 @@ p {
     box-shadow: var(--color-shadow-soft);
 }
 
+.passwordBox {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-card-border);
+    border: 2px solid var(--color-card-border);
+    border-radius: var(--radius-sm);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
 #pass,
 #copy {
     font-family: var(--font-family-accent);
     color: var(--color-bg-primary);
-    padding: 0.5rem;
-    background-color: var(--color-card-border);
-    border-radius: var(--radius-sm);
-    border: 2px solid var(--color-card-border);
-    min-width: 800px;
-    text-align: center;
+    background-color: transparent;
+    border: none;
+    padding: 0.8rem;
+    outline: none;
+}
+
+#pass {
+    flex-grow: 1;
+    text-align: left;
+    width: 100%;
+}
+
+#copy {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #copy:hover {
     background-color: var(--color-card-hover-bg);
-    cursor: pointer;
+}
+
+.pass-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-bg-primary);
+    margin-bottom: var(--spacing-md);
 }
 
 /* LINKS STYLES -------------------------------------------------------------------------------*/
@@ -270,27 +449,25 @@ input[type="number"] {
 
 /* WEATHER STYLES -------------------------------------------------------------------------------*/
 
-/* Estilos del contenedor principal */
-
 .weather-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: var(--spacing-xl);
     align-items: center;
-    width: 80%;
+    width: 90%;
 }
 
 .weather-data p,
 .weather p {
-    color: black;
-    font-size: 18px;
+    color: var(--color-text-dark);
+    font-size: var(--font-size-md);
     font-family: var(--font-family-accent);
 }
 
 .weather h3 {
-    color: black;
-    font-size: 32px;
+    color: var(--color-text-dark);
+    font-size: var(--font-size-h2);
     font-family: var(--font-family-accent);
 }
 
@@ -299,18 +476,21 @@ input[type="number"] {
     height: 125px;
 }
 
-/* Estilos de la caja de tiempo por hora */
-
 .forecast {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .forecast h3 {
-    color: black;
-    font-size: 20px;
+    color: var(--color-text-dark);
+    font-size: var(--font-size-lg);
     font-family: var(--font-family-accent);
     padding: var(--spacing-md);
 }
@@ -332,8 +512,8 @@ input[type="number"] {
 }
 
 .hour-box p {
-    color: black;
-    font-size: 15px;
+    color: var(--color-text-dark);
+    font-size: var(--font-size-sm);
     font-family: var(--font-family-accent);
 }
 
@@ -342,13 +522,64 @@ input[type="number"] {
     height: 50px;
 }
 
-/* Estilos barra de scroll */
 .forecast-hours::-webkit-scrollbar {
-    height: 8px;
+    height: var(--spacing-sm);
 }
 
 .forecast-hours::-webkit-scrollbar-thumb {
     background-color: var(--color-card-border);
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
+}
+
+/*  DISEÑO RESPONSIVE (MÓVILES Y TABLETS)------------------------------------------------------------- */
+
+@media (max-width: 800px) {
+    .dashboard-container {
+        flex-direction: column;
+        height: auto;
+        padding: var(--spacing-md);
+    }
+
+    .dashboard-card {
+        width: 100%;
+        min-height: 250px;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .mainContainer {
+        height: auto;
+        min-height: 60vh;
+        padding: var(--spacing-lg) var(--spacing-md);
+        width: 95%;
+    }
+
+    .weather-container,
+    .weather-container-index {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .weather-index,
+    .weather-data-index {
+        text-align: center;
+    }
+
+    .headerTitle {
+        font-size: var(--font-size-h2);
+        text-align: center;
+    }
+
+    #navigation-footer ul {
+        flex-wrap: wrap;
+    }
+
+    .linkStyle {
+        flex-direction: column;
+    }
+
+    main {
+        width: 100%;
+        margin: var(--spacing-sm);
+    }
 }

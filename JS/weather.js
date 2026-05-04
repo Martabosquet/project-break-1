@@ -7,25 +7,27 @@ const weatherIcon = document.getElementById("weather-icon");
 const weatherData = document.getElementById("weather-data");
 const forecast = document.getElementById("forecast");
 
-document.addEventListener("DOMContentLoaded", getWeather);
+document.addEventListener("DOMContentLoaded",
 
-async function getWeather() {
-    try {
-        const response = await fetch(BASE_URL);
-        if (!response.ok) {
-            throw new Error(`Error en la petición: ${response.status}`);
+    async function () {
+        try {
+            const response = await fetch(BASE_URL);
+            if (!response.ok) {
+                throw new Error(`Error en la petición: ${response.status}`);
+            }
+
+
+            const data = await response.json();
+
+            console.log(data);
+            displayWeather(data);
+            displayForecast(data);
+
+        } catch (error) {
+            console.error("Hubo un problema al obtener los datos:", error);
         }
-
-        const data = await response.json();
-
-        console.log(data);
-        displayWeather(data);
-        displayForecast(data);
-
-    } catch (error) {
-        console.error("Hubo un problema al obtener los datos:", error);
     }
-}
+);
 
 // FUNCIONES --------------------------------------------------------------------------------------------
 
@@ -45,6 +47,8 @@ function displayWeather(data) {
     weatherIcon.appendChild(imageElement);
 
     weatherData.innerHTML += `
+        <p>Temperatura: ${current.temp_c}°C</p>
+        <p>Sensación Térmica: ${current.feelslike_c}°C</p>
         <p>Precipitaciones: ${current.precip_mm} mm</p>
         <p>Humedad: ${current.humidity}%</p>
         <p>Viento: ${current.wind_kph} km/h</p>
