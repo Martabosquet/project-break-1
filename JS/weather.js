@@ -43,7 +43,7 @@ function displayWeather(data) {
     weather.appendChild(conditionElement);
 
     const imageElement = document.createElement("img");
-    imageElement.src = current.condition.icon;
+    imageElement.src = `https:${current.condition.icon}`;
     weatherIcon.appendChild(imageElement);
 
     weatherData.innerHTML += `
