@@ -54,7 +54,34 @@ Si deseas ejecutar este proyecto localmente:
     git clone https://github.com/Martabosquet/project-break-1.git
     ```
 2.  **Abrir el proyecto:**
-    Simplemente abre `index.html` en cualquier navegador moderno.
+    Navega a la carpeta del proyecto y abre el archivo `index.html` en tu navegador. No requiere de servidores especiales ni compilación, ya que utiliza JavaScript puro.
+
+También puedes ver la demo del proyecto a través del siguiente enlace de GitHub Pages:
+    
+https://martabosquet.github.io/project-break-1/
+---
+
+## 💡 Uso del Dashboard
+
+*   **Página Principal:** Tienes una visión resumida de todas las herramientas. Haz clic en **"VER MÁS DETALLES AQUÍ"** en cualquier tarjeta para ir a la vista a pantalla completa de esa herramienta.
+*   **Generador de Contraseñas:** Desliza la barra para elegir la longitud y pulsa el botón para generar. Haz clic en el icono de los cuadros para copiar la contraseña al portapapeles.
+*   **Gestor de Enlaces:** Escribe el nombre y la URL, pulsa "Añadir". Tus enlaces se guardarán automáticamente en tu navegador. Si haces click en el icono de los cuadros dentro de los enlaces guardados, se abrirá la URL en una nueva pestaña. Si haces click en la X se eliminará el enlace.
+*   **Estación Meteorológica:** Muestra la temperatura actual, el estado del cielo, la humedad y el viento de la ciudad configurada. Incluye un desglose de las próximas 24 horas para planificar tu día.
+*   **Navegación:** En todas las páginas internas encontrarás un botón **"GO HOME"** y una barra de navegación inferior para moverte rápidamente entre herramientas.
+
+---
+
+## ⚙️ Configuración (Opcional)
+
+Si deseas cambiar la ciudad por defecto de la estación meteorológica:
+1. Abre el archivo `JS/weather.js`.
+2. Modifica la API Key en la constante `API_KEY` en la línea 1 y la constante `city` en la línea 2:
+   ```javascript
+   const API_KEY = "TuAPIKey";
+   const city = "TuCiudad";
+   ```
+3. Guarda el archivo y refresca el navegador.
+
 
 ---
 
