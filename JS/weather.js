@@ -1,33 +1,30 @@
 const API_KEY = "e0f54c0e932f4a1dbbe110338262004"
 const city = "Bilbao";
-const BASE_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&aqi=no`;
+const BASE_URL = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&aqi=no&days=2`; //datos de hoy y mañana
 
 const weather = document.getElementById("weather");
 const weatherIcon = document.getElementById("weather-icon");
 const weatherData = document.getElementById("weather-data");
 const forecast = document.getElementById("forecast");
 
-document.addEventListener("DOMContentLoaded",
-
-    async function () {
-        try {
-            const response = await fetch(BASE_URL);
-            if (!response.ok) {
-                throw new Error(`Error en la petición: ${response.status}`);
-            }
-
-
-            const data = await response.json();
-
-            console.log(data);
-            displayWeather(data);
-            displayForecast(data);
-
-        } catch (error) {
-            console.error("Hubo un problema al obtener los datos:", error);
+async function getWeather() {
+    try {
+        const response = await fetch(BASE_URL);
+        if (!response.ok) {
+            throw new Error(`Error en la petición: ${response.status}`);
         }
+
+
+    const data = await response.json();
+
+    console.log(data);
+    displayWeather(data);
+    displayForecast(data);
+
+    } catch (error) {
+        console.error("Hubo un problema al obtener los datos:", error);
     }
-);
+}
 
 // FUNCIONES --------------------------------------------------------------------------------------------
 
@@ -56,16 +53,33 @@ function displayWeather(data) {
 }
 
 function displayForecast(data) {
-    const forecastData = data.forecast.forecastday[0].hour;
+    const now = new Date();
+    const currentHour = now.getHours();
+
+    let hours = [];
+
+    // Horas restantes de hoy
+    const todayHours = data.forecast.forecastday[0].hour.filter(h => {
+        const hourTime = new Date(h.time);
+        return hourTime.getHours() >= currentHour;
+    });
+    hours = hours.concat(todayHours);
+
+    // Si faltan horas, agregar de mañana
+    if (hours.length < 24 && data.forecast.forecastday[1]) {
+        const tomorrowHours = data.forecast.forecastday[1].hour;
+        const needed = 24 - hours.length;
+        hours = hours.concat(tomorrowHours.slice(0, needed));
+    }
 
     const title = document.createElement("h3");
-    title.innerText = "PREVISIÓN POR HORAS";
+    title.innerText = "PRÓXIMAS 24 HORAS";
     forecast.appendChild(title);
 
     const hoursContainer = document.createElement("div");
     hoursContainer.classList.add("forecast-hours");
 
-    forecastData.forEach(hour => {
+    hours.slice(0, 24).forEach(hour => {
         const hourBox = document.createElement("div");
         hourBox.classList.add("hour-box");
 
@@ -73,7 +87,7 @@ function displayForecast(data) {
 
         hourBox.innerHTML = `
             <p>${timeOnly}</p>
-            <img src="${hour.condition.icon}" alt="clima">
+            <img src="https:${hour.condition.icon}" alt="clima">
             <p>${hour.temp_c}°C</p>
         `;
         hoursContainer.appendChild(hourBox);
@@ -81,3 +95,6 @@ function displayForecast(data) {
 
     forecast.appendChild(hoursContainer);
 }
+
+//iniciamos todo llamando a la función:
+getWeather();

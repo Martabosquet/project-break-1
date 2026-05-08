@@ -6,7 +6,7 @@ body {
     background-attachment: fixed;
     min-height: 100vh;
     margin: 0;
-    transition: all 1s ease-in-out;
+    transition: background-image 0.8s ease-in-out;
 }
 
 #navigation-footer ul {
@@ -15,7 +15,7 @@ body {
     gap: 4%;
     padding: var(--spacing-md);
     background-color: var(--color-card-border);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-sm));
     box-shadow: var(--color-shadow-hover);
 }
 
@@ -23,7 +23,7 @@ body {
     border: 1px solid var(--color-card-border);
     background: var(--color-card-glass-bg);
     box-shadow: var(--color-shadow-soft);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-sm));
     text-shadow: var(--text-shadow-heading);
     -webkit-text-stroke: .5px var(--color-text-heading);
 
@@ -65,7 +65,7 @@ p {
     border: 1px solid var(--color-card-border);
     background: var(--color-card-glass-bg);
     box-shadow: var(--color-shadow-soft);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-sm));
     text-shadow: var(--text-shadow-heading);
     -webkit-text-stroke: 1px var(--color-card-border);
     cursor: pointer;
@@ -117,13 +117,14 @@ p {
 
     background: var(--color-card-glass-bg);
     border-radius: var(--radius-lg);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(var(--blur-md));
+    border: 1px solid var(--color-glass-border-soft);
 }
 
 .dashboard-card h2 {
     margin-bottom: auto;
-    padding-top: 10px;
+    padding-top: var(--spacing-xs);
+    padding-bottom: var(--spacing-sm);
 }
 
 .dashboard-card p {
@@ -152,9 +153,9 @@ p {
 }
 
 .li-container-index {
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-sm));
     width: 100%;
-    padding: 20px;
+    padding: var(--spacing-md);
     border: 1px solid var(--color-card-border);
     border-radius: var(--radius-lg);
     font-family: var(--font-family-accent);
@@ -204,20 +205,22 @@ p {
 
 .weather-index h3 {
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: var(--font-size-md);
     line-height: 1.1;
     color: var(--color-text-heading);
+    margin: 0;
 }
 
 .weather-index p {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-style: italic;
     color: var(--color-bg-primary);
+    margin: 0;
 }
 
 .weather-icon-index img {
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
 }
 
 .weather-data-index {
@@ -238,27 +241,28 @@ p {
 .forecast-index {
     width: 100%;
     flex-grow: 1;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
     min-height: 0;
-    padding: 10px 5px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    border-top: 1px solid var(--color-glass-border-soft);
 }
 
-.forecast h3 {
-    font-size: 0.9rem !important;
+.forecast-index h3 {
+    font-size: var(--font-size-xs) !important;
     text-align: center;
-    padding: 5px 0;
+    padding: var(--spacing-xxs) 0;
+    margin: 0;
 }
 
 .forecast-hours {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
-    gap: 10px;
-    padding-bottom: 8px;
-    margin-top: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
+    gap: var(--spacing-xs);
+    padding-bottom: var(--spacing-xxs);
+    margin-top: var(--spacing-xxs);
+    margin-bottom: var(--spacing-xxs);
 }
 
 /* CLOCK STYLES --------------------------------------------------------------------------------------*/
@@ -298,7 +302,7 @@ p {
     border: 1px solid var(--color-card-border);
     border-radius: var(--radius-md);
     box-shadow: var(--color-shadow-soft);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-sm));
     cursor: pointer;
     background-color: var(--color-card-border);
 }
@@ -342,7 +346,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid var(--color-dark-border-soft);
 }
 
 #copy:hover {
@@ -404,9 +408,9 @@ input[type="number"] {
     border: 2px solid var(--color-card-border);
     border-radius: 40%;
     box-shadow: var(--color-shadow-soft);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-sm));
     cursor: pointer;
-    padding: 0 var(--font-size-delete) 0 var(--font-size-delete);
+    padding: 0 var(--spacing-xxs);
     font-family: var(--font-family-header);
     color: var(--color-bg-primary);
 }
@@ -416,9 +420,9 @@ input[type="number"] {
     border: 2px solid var(--color-card-border);
     border-radius: var(--radius-sm);
     box-shadow: var(--color-shadow-soft);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-sm));
     cursor: pointer;
-    padding: var(--font-size-delete);
+    padding: var(--spacing-xxs);
     font-family: var(--font-family-header);
     color: var(--color-bg-primary);
 }
@@ -434,9 +438,9 @@ input[type="number"] {
     border: 2px solid var(--color-card-border);
     border-radius: var(--radius-sm);
     box-shadow: var(--color-shadow-soft);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-sm));
     cursor: pointer;
-    padding: var(--font-size-delete);
+    padding: var(--spacing-xxs);
     font-family: var(--font-family-header);
     color: var(--color-bg-primary);
 }
@@ -485,7 +489,7 @@ input[type="number"] {
     overflow-y: auto;
     overflow-x: hidden;
     min-height: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--color-glass-border-soft);
 }
 
 .forecast h3 {

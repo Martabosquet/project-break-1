@@ -4,27 +4,29 @@ const imgPath = isHtmlFolder ? '../img/' : './img/';
 const htmlPath = isHtmlFolder ? './' : './HTML/';
 
 // BACKGROUNDS
-let backgrounds = []
-backgrounds[0] = imgPath + 'adam-birkett-PAV672H43Gs-unsplash.jpg'
-backgrounds[1] = imgPath + 'alyona-yankovska-gfJ_5-5e0wU-unsplash.jpg'
-backgrounds[2] = imgPath + 'annie-spratt-fFxUOS69bho-unsplash.jpg'
-backgrounds[3] = imgPath + 'dose-juice-sTPy-oeA3h0-unsplash.jpg'
-backgrounds[4] = imgPath + 'ethan-hoover-Gd436JT_Gyg-unsplash.jpg'
-backgrounds[5] = imgPath + 'mae-mu-9z-veIxii6k-unsplash.jpg'
-backgrounds[6] = imgPath + 'nicolette-meade-RL3F99l0XYE-unsplash.jpg'
-backgrounds[7] = imgPath + 'timothy-klingler-7A-qQiV7i38-unsplash.jpg'
-backgrounds[8] = imgPath + 'bharath-kumar-rFsA98sht3M-unsplash.jpg'
-backgrounds[9] = imgPath + 'the-walters-art-museum-2vseuo54GvA-unsplash.jpg'
-backgrounds[10] = imgPath + 'pawel-czerwinski-Kg2SSR9wyGU-unsplash.jpg'
-backgrounds[11] = imgPath + 'bharath-kumar-7Gfn4QxxUYY-unsplash.jpg'
-backgrounds[12] = imgPath + 'natalie-kinnear-iXsezhIynRc-unsplash.jpg'
+const backgroundFiles = [
+    'adam-birkett-PAV672H43Gs-unsplash.jpg',
+    'alyona-yankovska-gfJ_5-5e0wU-unsplash.jpg',
+    'annie-spratt-fFxUOS69bho-unsplash.jpg',
+    'dose-juice-sTPy-oeA3h0-unsplash.jpg',
+    'ethan-hoover-Gd436JT_Gyg-unsplash.jpg',
+    'mae-mu-9z-veIxii6k-unsplash.jpg',
+    'timothy-klingler-7A-qQiV7i38-unsplash.jpg',
+    'bharath-kumar-rFsA98sht3M-unsplash.jpg',
+    'the-walters-art-museum-2vseuo54GvA-unsplash.jpg',
+    'pawel-czerwinski-Kg2SSR9wyGU-unsplash.jpg',
+    'bharath-kumar-7Gfn4QxxUYY-unsplash.jpg',
+    'natalie-kinnear-iXsezhIynRc-unsplash.jpg'
+];
+
+const backgrounds = backgroundFiles.map(file => imgPath + file);
 
 function cambiarFondo() {
     const indiceAleatorio = Math.floor(Math.random() * backgrounds.length);
     document.body.style.backgroundImage = `url(${backgrounds[indiceAleatorio]})`;
 }
 
-setInterval(cambiarFondo, 30000);
+setInterval(cambiarFondo, 20000);
 cambiarFondo();
 
 // FOOTER BUTTONS

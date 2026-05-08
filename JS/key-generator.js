@@ -6,10 +6,8 @@ const passwordLength = document.getElementById('passwordLength');
 const stringMayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const stringMinusculas = "abcdefghijklmnopqrstuvwxyz";
 const stringNumeros = "0123456789";
-const stringSimbolos = "!@#$%^&*()-_=+[]{};:'<>?";
+const stringSimbolos = "!@#$%^&*()-_=+";
 const allStrings = stringMayusculas + stringMinusculas + stringNumeros + stringSimbolos;
-
-//generar la contraseña en función de los caracteres que quiero:
 
 generateButton.addEventListener("click",
     function () {
